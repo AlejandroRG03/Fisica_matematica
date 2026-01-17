@@ -1,0 +1,270 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin = 1 in]{geometry}
+\usepackage{bbold}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{ytableau}
+\usepackage{physics}
+
+\title{Fisica matematica}
+\author{Alejandro Rodríguez González \\ Lorena Rodríguez Lamas}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+
+El grupo $SU(N)$ es el conjunto por matrices unitarias $N\times N$ con determinante unidad, que tiene por ley de composición el producto convencional de matrices. Es decir:
+\begin{equation}
+    U U ^\dagger = U^\dagger U = \mathbb{1}_{N\times N}, \quad \det(U) = 1 \quad \forall U\in SU(N)
+\end{equation}
+Un elemento del grupo $SU(N)$ se puede parametrizar de forma genérica de la siguiente forma:
+\begin{equation}
+    U(\theta) = e^{i\theta^a T^a}, \quad \theta^a \in \mathbb{R}
+\end{equation}
+Donde $T^a$ son los generadores del álgebra de Lie $\mathfrak{su}(N)$. Dichos generadores deben ser hermíticos y de traza nula para respetar la definición del grupo. Estas restricciones limitan el número de generadores independientes del grupo a un total de $N^2 -1$.
+
+El álgebra $\mathfrak{su}(N)$, para una cierta representación de los generadores $T^a$ que llamaremos $D$, es generada a partir de las relaciones de conmutación:
+\begin{equation}
+    [T^a, T^b] = i f^{abc}T^c, \quad f^{abc} \in \mathbb{R}
+\end{equation}
+De esta ecuación es inmediato ver que los operadores $-T^{a*}$ cumplen las mismas relaciones de conmutación, es decir:
+\begin{equation}
+    [-T^{a*}, -T^{b*}] = i f^{abc}(-T^{c*})
+\end{equation}
+Esto se conoce como representación conjugada de $D$, usualmente denotada $\bar{D}$.
+
+El estudio del grupo $SU(N)$ tiene especial interés en física. Por ejemplo, sabemos que el grupo $SU(2)$ describe el espín. Así, la función de onda de describe el espín de un electrón vive en la representación fundamental de $SU(2)$, que tiene dimensión $2$. Esto simplemente nos dice que tenemos $2$ estados posibles de espín, $\ket{\uparrow}, \ket{\downarrow}$. En añadido, la física cuántica nos dice que si tenemos dos electrones en estados $\ket{\psi_1}, \ket{\psi_2}$, la función de onda que describe el sistema global se obtiene simplemente como el producto tensorial de ambos estados, es decir:
+\begin{equation}
+    \ket{\Psi} = \ket{\psi_1} \otimes \ket{\psi_2} = \{\ket{\uparrow\uparrow}, \ket{\downarrow\downarrow}, \ket{\uparrow\downarrow}, \ket{\downarrow\uparrow}\}
+\end{equation}
+Sin embargo, esta multiplicación bruta no nos da los estados físicos del sistema. Esto es debido a que los electrones son partículas indistinguibles, por lo que la función de ondas debe ser simétrica/antisimétrica bajo el intercambio de 2 electrones, algo que los dos estados con espines cruzados no cumplen. Físicamente, sabemos que el sistema puede estar en un triplete de espín ($S=1$), o en un singlete de espín ($S=0$), de forma que podemos escribir los estados físicos como:
+\begin{align}
+    \text{Triplete} &\equiv \left\{\ket{\uparrow\uparrow}, \ket{\downarrow\downarrow}, \frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow}+\ket{{\downarrow\uparrow}}\right)\right\}
+    \\
+    \text{Singlete} &\equiv \left\{ \frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow}-\ket{{\downarrow\uparrow}}\right)\right\}
+\end{align}
+Es decir, pasamos de 4 estados desordenados a dos agrupaciones con propiedades físicas bien definidas; una con 3 elementos simétricos, o de dimensión 3; y otra con 1 elemento antisimétrico, o de dimensión 1. De forma efectiva hemos determinado que:
+\begin{equation}
+    2\otimes 2 = 3_S\oplus 1_A
+\end{equation}
+Esto se conoce como la \textbf{descomposición de Clebsch-Gordan.} En general, la descomposición consiste en eexpresar el producto tensorial de un cierto número de representaciones $R_1\otimes R_2 \otimes R_3 \cdots$ en una suma de representaciones irreducibles $r_1\oplus r_2\oplus r_3\cdots$. \textbf{Dichas representaciones irreducibles se corresponden con los estados físicos del sistema}.
+
+Entonces, hemos visto que es de particular interés obtener descomposición de Clebsch-Gordan del sistema a estudiar. La descomposición en representaciones irreducibles y sus propiedades de simetría se puede sistematizar mediante el formalismo de los tableros de Young.
+
+
+\section{Reglas de construcción de los tableros}
+Un tablero de Young es un esquema bidimensional de cajas organizadas en columnas y filas. Existen dos restricciones:
+\begin{itemize}
+    \item El número de cajas en una fila debe ser igual o menor al número de cajas de la fila anterior.
+    \item El número de cajas en una columna debe ser menor o igual que $N$. 
+\end{itemize}
+Por ejemplo para $SU(3)$
+\begin{center}
+    \begin{ytableau}
+        {} & {} & {} \\
+        {} & {}
+    \end{ytableau}
+    \hspace{0.5cm}
+    \begin{ytableau}
+        {} & {} & {} \\
+        {} & {} & {} & {}
+    \end{ytableau}
+    \hspace{0.5 cm}
+    \begin{ytableau}
+        {} & {} \\
+        {} \\
+        {} \\
+        {}
+    \end{ytableau}
+\end{center}
+\hspace{4.8cm} Permitido \hspace{0.5 cm} No permitido \hspace{0.5 cm} No permitido
+
+Un diagrama puede ser asociado con una representación irreducible del grupo $SU(N)$. La \textbf{representación }
+\section{Descomposición de un producto tensorial}
+Para llevar a cabo la descomposición Clebsh-Gordan de un producto tensorial de dos tableros de Young, llamémoslos $A$ y $B$, procedemos de la siguiente forma:
+\begin{enumerate}
+    \item Etiquetamos las filas del tablero $B$ con distintas letras: la primera fila con $a$, la segunda con $b$, la tercera con $c$, y así sucesivamente.
+    \item Empezamos con las $a$ y las colocamos en el diagrama $A$ con la condición de que no puede haber dos en la misma columna.
+    \item Seguimos con las $b$ y las colocamos en el diagrama anterior (tras colocar las $a$) respetando la condición de no más de dos $b$ en la misma columna, y además respetando que tiene que haber siempre antes al menos una $a$ si leemos el tablero de derecha a izquierda y de arriba a abajo.
+    \end{enumerate}
+Así se sucedería con las $c$, $d$... siempre respetando que leyendo de derecha a izquierda y de arriba a abajo, el número de $a$ tiene que ser mayor o igual que el de $b$; que es mayor o igual que el de $c$; que es mayor o igual que el de $d$, etc.
+Para familiarizarnos con estas reglas empezamos con un par de ejemplos sencillos.
+\subsection{Caso $SU(2): 2 \otimes 2$}
+El producto tensorial de dos partículas de espín 1/2.
+\begin{center}
+\begin{ytableau}
+    {}
+\end{ytableau}
+\hspace{0.1cm}
+$\otimes$
+\hspace{0.1cm}
+\begin{ytableau}
+    a
+\end{ytableau}
+\hspace{0.1cm}
+$=$
+\hspace{0.1cm}
+\begin{ytableau}
+    {} & a
+\end{ytableau}
+\hspace{0.1cm}
+$\oplus$
+\hspace{0.1cm}
+\begin{ytableau}
+    {} \\
+    a
+\end{ytableau}
+\end{center}
+La representación reducible $2 \otimes 2$ se ha reducido a la suma directa de dos representaciones irreducibles $3 \oplus 1$.  
+\subsection{Caso $SU(3): 8 \otimes 8$}
+\begin{center}
+\ydiagram{2,1}
+\hspace{0.5 cm}
+$\otimes$
+\hspace{0.5 cm}
+\begin{ytableau}
+    a & a \\
+    b
+\end{ytableau}
+\end{center}
+Primero adjudicamos las $a$ recordando que no se pueden tener más de una por columna. De forma que tenemos
+\begin{center}
+ \begin{ytableau}
+    {} & {} & a \\
+    a
+\end{ytableau}
+\hspace{0.5 cm}
+\begin{ytableau}
+    {} & {} & a \\
+    {} & a
+\end{ytableau}
+\hspace{0.5 cm}
+\begin{ytableau}
+    {} & {} & a\\
+    {} \\
+    a
+\end{ytableau}
+\hspace{0.5 cm}
+\begin{ytableau}
+    {} & {}\\
+    {} & a \\
+    a
+\end{ytableau}
+\end{center}
+Ahora adjudicamos la $b$, teniendo en cuenta además que si leemos el diagrama de derecha a izquierda, y de arriba a abajo, en cualquier punto de la lectura tenemos que tener más $a$ que $b$. Es decir
+\begin{center}
+    \begin{ytableau}
+        {} & {} & a & b \\
+        a
+    \end{ytableau}
+    \hspace{0.5 cm}
+    \begin{ytableau}
+        {} & {} & a \\
+        a & b
+    \end{ytableau}
+\end{center}
+El primer diagrama no estaría permitido ya que empezaríamos leyendo una $b$, sin embargo el segundo sí que lo estaría ya que empezamos leyendo una $a$, seguida de la $b$. 
+
+Con esto en mente, vamos diagrama a diagrama.
+\begin{center}
+\begin{ytableau}
+  {} & {} & a \\
+  {} & a
+\end{ytableau}
+\hspace{0.6cm}
+:
+\hspace{0.6cm}
+\begin{ytableau}
+  {} & {} & a \\
+  {} & a & b
+\end{ytableau}
+\hspace{0.6cm}
+\begin{ytableau}
+  {} & {} & a \\
+  {} & a \\
+  b
+\end{ytableau}
+
+\vspace{0.2cm}
+\end{center}
+\hspace{8.4cm} (1) \hspace{1.8cm} (2)
+\vspace{0.2cm}
+\begin{center}
+    \begin{ytableau}
+        {} & {} \\
+        {} & a \\
+        a   
+    \end{ytableau}
+    \hspace{0.2 cm}
+    : 
+    \hspace{0.3 cm}
+    \begin{ytableau}
+        {} & {} \\
+        {} & a  \\
+        a & b
+    \end{ytableau}
+\end{center}
+\vspace{0.2cm}
+\hspace{9 cm} (3)
+\vspace{0.2cm}
+\begin{center}
+    \begin{ytableau}
+        {} & {} & a \\
+        {} \\
+        a
+    \end{ytableau}
+    \hspace{0.2cm}
+    :
+    \hspace{0.3cm}
+    \begin{ytableau}
+        {} & {} & a \\
+        {} & b \\
+        a
+    \end{ytableau}
+\end{center}
+\vspace{0.2cm}
+\hspace{9.3 cm} (4)
+\vspace{0.2cm}
+\begin{center}
+    \begin{ytableau}
+        {} & {} & a & a \\
+        {}
+    \end{ytableau}
+    \hspace{0.2 cm}
+    :
+    \hspace{0.3 cm}
+    \begin{ytableau}
+        {} & {} & a & a \\
+        {} & b
+    \end{ytableau}
+    \hspace{0.5cm}
+    \begin{ytableau}
+        {} & {} & a & a \\
+        {} \\
+        b
+    \end{ytableau}
+\end{center}
+\vspace{0.2cm}
+\hspace{8.1cm} (5) \hspace{2.4cm} (6)
+\vspace{0.2cm}
+
+Ahora podemos calcular la dimensión de cada diagrama
+\begin{enumerate}
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 5 \times 2 \times 3 \times 4}{3 \times 4 \times 2 \times 3 \times 1 \times 2} = 10$ \hspace{1.5cm} $(p, q) = (0,3) \implies \text{Representación conjugada} \implies \bar{10}$
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 5 \times 2 \times 3 \times 1}{1 \times 3 \times 5 \times 1 \times 3 \times 1} = 8$ \hspace{1.5cm} $(p, q) = (1,1) \implies \text{Representación real} \implies 8$
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 2 \times 3 \times 1 \times 2}{1 \times 2 \times 3 \times 2 \times 3 \times 4} = 1$ \hspace{1.5cm} $(p, q) = (0,0) \implies \text{Representación real} \implies 1$
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 5 \times 2 \times 3 \times 1}{1 \times 3 \times 5 \times 1 \times 3 \times 1} = 8$ \hspace{1.5cm} $(p, q) = (1,1) \implies \text{Representación real} \implies 8$
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 5 \times 6 \times 2 \times 3}{2 \times 5 \times 1 \times 4 \times 2 \times 1} = 27$ \hspace{1.5cm} $(p, q) = (2,2) \implies \text{Representación real} \implies 27$
+    \item $D = \frac{F}{H} =\frac{3\times 4 \times 5 \times 6 \times 2 \times 1}{1 \times 2 \times 6 \times 3 \times 2 \times 1} = 10$ \hspace{1.5cm} $(p, q) = (3,0) \implies \text{Representación fundamental} \implies 10$
+\end{enumerate}
+Así que la descomposición es 
+\begin{center}
+    $\boxed{ 8 \otimes 8 = 27 \oplus 10 \oplus \bar{10} \oplus 8 \oplus 8 \oplus 1}$
+\end{center}
+\end{document}
